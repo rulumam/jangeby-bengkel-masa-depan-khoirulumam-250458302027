@@ -1,0 +1,3 @@
+- [ ] Update Register.php to add $terms property
+- [ ] Update register.blade.php to use Livewire directives: wire:model, wire:submit, error displays, success message
+- [ ] Test the registration functionality
