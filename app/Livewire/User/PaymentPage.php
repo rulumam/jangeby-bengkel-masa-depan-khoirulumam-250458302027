@@ -32,18 +32,19 @@ class PaymentPage extends Component
         ]);
 
         // Simpan file ke storage
-         
+        $path = $this->payment_proof->store('payment_proofs', 'public');
+
 
         // Simpan atau update data pembayaran
         Payment::updateOrCreate(
             ['repair_id' => $this->repair->id],
             [
                 'proof' => $path,
-                'status' => 'paid', // status menjadi paid
+                'status' => 'paid', 
             ]
         );
 
-        // Update status perbaikan menjadi paid juga
+        
         $this->repair->update(['status' => 'paid']);
 
         session()->flash('success', 'Pembayaran berhasil dan bukti pembayaran telah diunggah.');
